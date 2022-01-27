@@ -1,0 +1,316 @@
+/* all element css */
+*{
+    box-sizing: border-box;
+    user-select: none
+}
+body{
+    background-color:#f2f8eb
+}
+/* scroll bar css */
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: #ebebeb;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #59AD65; 
+}
+
+
+.Header{
+    /* background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); */
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    background-color: white;
+    position:sticky;
+    top:0px;
+    left:0;
+    right:0;
+    z-index: 1;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    margin:0px 0px 10px 0px;
+}
+.Header::before{
+    content:"";
+    position: absolute;
+    bottom:0px;
+    width: 100%;
+    height:4px;
+    z-index: -1;
+    background:linear-gradient(#59AD65,white);
+    animation:bottom 2s forwards
+}
+.Header::after{
+    content:"";
+    position: absolute;
+    top:0;
+    right:0;
+    width: 100%;
+    height:4px;
+    animation:bottom 2s forwards;
+    z-index: -1;
+    background:linear-gradient(#59AD65,white);
+}
+.nav_before_login{
+    margin:10px;
+
+    
+}
+.nav_before_login a{
+    position: relative;
+    padding-bottom: 3px;
+    font-weight: bold;
+    margin:10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color:black
+    
+}
+.toggle {
+    padding:10px;
+    margin:-8px;
+    margin-left: 5px;
+    
+}
+.active{
+    position: relative;
+    color:#59AD65!important;
+    font-weight:bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin:10px;
+    text-decoration: none;
+    text-transform: uppercase;
+
+}
+.active::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height:3px;
+    background-color:#8EC74C;
+    width:100%;
+    animation:bottom 0.9s normal 
+}
+.active::after{
+    content: '';
+    position: absolute;
+    top:1px;
+    right:0;
+    height:3px;
+    background-color:#8EC74C;
+    width:100%;
+    animation:bottom 0.9s normal 
+}
+
+
+@keyframes bottom {
+    0%{
+        width:0%
+    }
+    100%{
+        width:100%
+    }
+}
+.logo{
+    width:100px;
+    height:70px;
+    margin:10px;
+}
+
+/* Guide part css */
+
+
+.anything{
+    height:350px;
+    color:#59AD65 ;
+    overflow:auto;
+    margin: 0 20px 20px 20px;
+    display:grid;
+    row-gap: 20px;
+    grid-template-rows: auto;
+    column-gap: 40px;
+    grid-template-columns:auto auto auto auto ;
+}
+.card{
+    border-radius: 8px;
+    width:250px;
+    height:150px;
+    display:flex;
+    background-color: white;
+    margin:8px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    cursor:pointer;
+    transition: all 0.5s ease;
+}
+.card span .cal:hover {
+    transform: scale(1.1);
+}
+.card span .info:hover{
+    transform: scale(1.1)
+}
+.card:hover.card img {
+    transform: scale(1.1);
+    filter: drop-shadow(-2px 5px 5px  rgba(0,0,0,0.3));
+}
+.card:hover.card p{
+    text-decoration: underline;
+}
+.card:hover{
+    transform:scale(1.1)
+}
+
+.wheather{
+
+    border-radius: 8px;
+    place-content: center;
+    margin:20px 20px 0 20px
+}
+.wheather div{
+    background-color: white;
+    padding:5px;
+    color:#59AD65;
+    border-radius: 8px;
+    /* background-color: white;  */
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+.text_refresh{
+    display: flex;
+    justify-content: space-between;
+    margin:8px
+}
+.wheather div p {
+    margin-left: 8px;
+}
+.temp{
+    font-weight: bold;
+}
+
+/* login page */
+.title{
+    display: flex;
+    justify-content:space-evenly
+}
+.main_title{
+    font-size: 18px;
+    font-weight: bold;
+}
+.left_,.right_{
+    font-weight:900;
+    color:green;
+    font-size:25px!important;
+    cursor: pointer ;
+}
+.left_:hover,.right_:hover{
+    text-decoration: underline;
+    background-color:rgba(0,0,0,0.2);
+    /* color:#59AD65 */
+}
+.option_tab{
+    margin:5px;
+    display:flex;
+    justify-content:center
+}
+.option_tab a {
+    padding:5px;
+    text-decoration: none;
+    color:#59AD65;
+    text-transform: uppercase;
+}
+.always_active{
+    padding:5px;
+    border-bottom:3px solid #8EC74C;
+    color:#59AD65;
+    text-transform: uppercase;
+}
+
+.tab_active{
+    border-bottom: 3px solid black;
+    padding:5px;
+    color:#59AD65;
+    text-transform: uppercase;
+}
+.tab_nota {
+    position: relative;
+    padding-bottom: 3px;
+    font-weight: bold;
+    margin:10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    
+}
+
+.option_content{
+
+    margin:20px auto;
+    width:700px;
+    height:450px;
+    background-color:white;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    border-radius:12px
+}
+.seed_calculator{
+    color:#59AD65;
+    display: grid;
+    place-items: center;
+}
+.calculator{
+    display: grid;
+    place-items: center;
+    /* display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center; */
+    width:200px;
+    height:100px;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    background-color:white;
+    border-radius: 13px;
+}
+.calculator span {
+    text-align: right;
+}
+.calculator input {
+    margin:0 auto;
+    border: 0;
+    padding:5px;
+    outline: 0;
+    border-bottom: 2px solid black;
+}
+.calculator input:focus{
+    border-color:#59AD65;
+}
+.calculate{
+    margin:8px;
+    padding:8px;
+    color:white;
+    border-radius: 12px;
+    border:0;
+    background-color:#59AD65;
+    cursor: pointer;
+}
+.para {
+    color:gray;
+    margin:20px
+}
+input[type="radio"] {
+    color:green
+}
+
+

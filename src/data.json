@@ -1,0 +1,79 @@
+[
+    [
+        {
+            "data": "Agricultural Instructions",
+            "details":[
+            "work-wise",
+            "Stage-Wise"]
+
+        },
+        {
+            "data": "Land an its Preparation",
+            "details":["Information"]
+        },
+        {
+            "data": "Seed quality and Grooming",
+            "details":["Calculator","Information"]
+        },
+        {
+            "data": "Planting Varieties-Seed rate and sowing spacing",
+            "details":["Calculator","Information"]
+        },
+        {
+            "data": "Fertilizer System",
+            "details":["Calculator","Information"]
+        },
+        {
+            "data": "Intercropping and Weeding",
+            "details":["Calculator","Information"]
+        },
+        {
+            "data": "Irrigation System and Irrigation Time",
+            "details":["Information"]
+        },
+        {
+            "data": "Disease Control",
+            "details":["Calculator","Information"]
+        },
+        {
+            "data": "Biological Control of the Disease",
+            "details":["Calculator","Information"]
+        },
+        {
+            "data": "Pruning, Grading and Storage",
+            "details":["Calculator","Information"]
+        }
+    ],
+    [
+        {
+            "data": "Agricultural Instructions"
+        },
+        {
+            "data": "Land an its Preparation"
+        },
+        {
+            "data": "Seed quality and Grooming"
+        },
+        {
+            "data": "Planting Varieties-Seed rate and sowing spacing"
+        },
+        {
+            "data": "Fertilizer System"
+        },
+        {
+            "data": "Intercropping and Weeding"
+        },
+        {
+            "data": "Irrigation System and Irrigation Time"
+        },
+        {
+            "data": "Disease Control"
+        },
+        {
+            "data": "Biological Control of the Disease"
+        },
+        {
+            "data": "Pruning, Grading and Storage"
+        }
+    ]
+]
