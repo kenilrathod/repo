@@ -6,6 +6,8 @@ import Register from './Register'
 import Guideinner from './Guideinner';
 import {Switch,FormControl,FormControlLabel} from '@mui/material'
 import logo from '../down.png'
+import Chat from './Chat/Chat'
+import Join from './Join/Join'
 // import logo from '../logo.jpg'
 import {NavLink} from 'react-router-dom'
 const Header = () => {
@@ -31,6 +33,7 @@ const Header = () => {
             <NavLink to="/" className={({ isActive }) => isActive? "active": 'link_guide'}>Guide</NavLink>
             <NavLink to="/login" className="link_login">Login</NavLink>
             <NavLink to="/Register" className="link_register">Register</NavLink>
+            <NavLink to="/chat" className="link_chat">Chat</NavLink>
             <FormControl >
                 <FormControlLabel className="label" control={<Switch onChange={changeLanguage}  className="toggle"/>} label={language} />
             </FormControl>
@@ -40,6 +43,8 @@ const Header = () => {
       <Routes>
         <Route path="/" element={<Guide value="English"/>}  />
         <Route path="/login" element={<Login value="English"/>}  />
+        <Route path="/chat" element={<Chat/>}  />
+        <Route path="/join" element={<Join/>}  />
         <Route path="/register" element={<Register value="English"/>}  />
         <Route path="/:id/*" element={<Guideinner value="English"/>}  />
       </Routes>

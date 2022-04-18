@@ -220,7 +220,6 @@ body{
 .left_:hover,.right_:hover{
     text-decoration: underline;
     background-color:rgba(0,0,0,0.2);
-    /* color:#59AD65 */
 }
 .option_tab{
     margin:5px;
@@ -273,10 +272,6 @@ body{
 .calculator{
     display: grid;
     place-items: center;
-    /* display:flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items:center; */
     width:200px;
     height:100px;
     box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
