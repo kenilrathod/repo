@@ -8,19 +8,21 @@ body{
 }
 /* scroll bar css */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 6px;
+    height: 6px;
 }
- 
 ::-webkit-scrollbar-track {
+    visibility: hidden;
     background-color: #ebebeb;
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
+    transition: all 0.2s ease-in-out;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: #59AD65; 
+    background: #59ad65; 
 }
 
 
@@ -134,7 +136,7 @@ body{
 
 
 .anything{
-    height:350px;
+    height:430px;
     color:#59AD65 ;
     overflow:auto;
     margin: 0 20px 20px 20px;
@@ -234,10 +236,27 @@ body{
 }
 .always_active{
     padding:5px;
-    border-bottom:3px solid #8EC74C;
+    /* border-bottom:3px solid #8EC74C; */
     color:#59AD65;
     text-transform: uppercase;
+
 }
+
+#da , #de {
+    transition: all 0.2s ease;
+}
+
+.always_active::before{
+    content: '';
+    position: absolute;
+    bottom:-4px;
+    right:0;
+    height:3px;
+    background-color:#8EC74C;
+    width:100%;
+    animation:bottom 0.5s normal;
+}
+
 
 .tab_active{
     border-bottom: 3px solid black;
@@ -259,7 +278,7 @@ body{
 
     margin:20px auto;
     width:700px;
-    height:450px;
+    height:500px;
     background-color:white;
     box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
     border-radius:12px
@@ -291,6 +310,10 @@ body{
 .calculator input:focus{
     border-color:#59AD65;
 }
+.calculate:disabled{
+    background-color: grey;
+    cursor: not-allowed;
+}
 .calculate{
     margin:8px;
     padding:8px;
@@ -299,6 +322,16 @@ body{
     border:0;
     background-color:#59AD65;
     cursor: pointer;
+}
+
+.acc {
+    width: 85%;
+    padding: 15px;
+    border-radius: 10px;
+    height: 230px;
+    /* box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px; */
+    overflow: auto;
+
 }
 .para {
     color:gray;

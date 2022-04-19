@@ -6,15 +6,18 @@ import sendLogo from "../../images/send.png";
 import Message from "../Message/Message";
 import ReactScrollToBottom from "react-scroll-to-bottom";
 import closeIcon from "../../images/closeIcon.png";
+import { CircularProgress } from '@mui/material';
 import swl from 'sweetalert';
 
 let socket;
 
 const ENDPOINT = "https://demo-cchat.herokuapp.com/";
 
-const Chat = () => {
+const Chat = ({value}) => {
+    console.log(value)
     const [id, setid] = useState("");
     const [messages, setMessages] = useState([])
+    const [Con, setCon] = useState(false)
 
     const send = () => {
         const message = document.getElementById('chatInput').value;
@@ -24,14 +27,19 @@ const Chat = () => {
 
     console.log(messages);
     useEffect(() => {
-        socket = socketIo(ENDPOINT, { transports: ['websocket'] });
 
+        socket = socketIo(ENDPOINT, { transports: ['websocket'] });
+        
         socket.on('connect', () => {
             swl({
                 title: "Connected",
                 icon: "success",
                 button: "Continue",
-            });
+                timer: 1500
+            }).then(() => {
+                setCon(true)
+            })
+            
 
             // alert('Connected');
             setid(socket.id);
@@ -72,10 +80,12 @@ const Chat = () => {
     }, [messages])
 
     return (
-        <div className="chatPage">
+        <>
+        {Con ?
+        <div className="chatPage">            
             <div className="chatContainer">
                 <div className="header">
-                    <h2>Project Peanut</h2>
+                    <h2>Peanuts Group</h2>
                     <a href="/"> <img src={closeIcon} alt="Close" /></a>
                 </div>
                 <ReactScrollToBottom className="chatBox">
@@ -86,8 +96,14 @@ const Chat = () => {
                     <button onClick={send} className="sendBtn"><img src={sendLogo} alt="Send" /></button>
                 </div>
             </div>
-
+        
+        
         </div>
+        :
+        <div className="loader" style={{width:"100%",height:"calc(100vh - 110px)",display:"grid",placeItems:"center"}}>
+        <CircularProgress color="success"/>
+        </div>}
+        </>
     )
 }
 

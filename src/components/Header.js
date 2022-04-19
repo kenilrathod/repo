@@ -1,20 +1,31 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { Routes,Route } from 'react-router'
 import Guide from './Guide'
 import Login from './Login'
 import Register from './Register'
 import Guideinner from './Guideinner';
 import {Switch,FormControl,FormControlLabel} from '@mui/material'
+
 import logo from '../down.png'
 import Chat from './Chat/Chat'
 import Join from './Join/Join'
 // import logo from '../logo.jpg'
-import {NavLink} from 'react-router-dom'
+import {NavLink,Link} from 'react-router-dom'
 const Header = () => {
     
-    const [language, setlanguage] = useState("English");
+  const [language, setlanguage] = useState("English");
+    useEffect(()=>{
+      
+      localStorage.setItem('language',language)
+    },[language])
+
+
+
+
+
+    
     const changeLanguage = () => {
-        if(language === "English"){
+        if(language == "English"){
             setlanguage("ગુજરાતી")
             localStorage.setItem("language","ગુજરાતી")
         }
@@ -24,10 +35,10 @@ const Header = () => {
     }
 
     return (
-       language === "English"?
+       language == "English"?
        <>
         <div className="Header">
-        <img src={logo} alt="f" className="logo" />
+        <Link to="/"><img src={logo} alt="f" className="logo" /></Link>
         <nav className="nav_before_login">
             
             <NavLink to="/" className={({ isActive }) => isActive? "active": 'link_guide'}>Guide</NavLink>
@@ -43,8 +54,8 @@ const Header = () => {
       <Routes>
         <Route path="/" element={<Guide value="English"/>}  />
         <Route path="/login" element={<Login value="English"/>}  />
-        <Route path="/chat" element={<Chat/>}  />
-        <Route path="/join" element={<Join/>}  />
+        <Route path="/chat" element={<Chat value="English" />}  />
+        <Route path="/join" element={<Join value="English" />}  />
         <Route path="/register" element={<Register value="English"/>}  />
         <Route path="/:id/*" element={<Guideinner value="English"/>}  />
       </Routes>
@@ -57,6 +68,7 @@ const Header = () => {
             <NavLink to="/" className={({ isActive }) => isActive? "active": 'link_guide'}>માર્ગદર્શિકા</NavLink>
             <NavLink to="/login" className="link_login">લોગીન</NavLink>
             <NavLink to="/Register" className="link_register">રજીસ્ટર</NavLink>
+            <NavLink to="/chat" className="link_register">ચર્ચા</NavLink>
             <FormControl >
                 <FormControlLabel className="label" control={<Switch onChange={changeLanguage}  className="toggle"/>} label={language} />
             </FormControl>
@@ -67,7 +79,9 @@ const Header = () => {
         <Route path="/" element={<Guide/>} value="ગુજરાતી" />
         <Route path="/login" element={<Login/>} value="ગુજરાતી" />
         <Route path="/register" element={<Register value="ગુજરાતી"/>}  />
-        <Route path="/:id" element={<Guideinner/>} value="ગુજરાતી" />
+        <Route path="/:id/*" element={<Guideinner value="ગુજરાતી"/>}  />
+        <Route path="/chat" element={<Chat value="ગુજરાતી" />}  />
+        <Route path="/join" element={<Join value="ગુજરાતી" />}  />
       </Routes>
         </>
         

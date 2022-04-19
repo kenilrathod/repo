@@ -1,47 +1,47 @@
 [
     [
         {
-            "data": "Agricultural Instructions",
+            "data": ["Agricultural Instructions","ખેતી વિષયક સુચનો"],
             "details":[
-            "work-wise",
-            "Stage-Wise"]
-
+                ["work-wise","Stage-Wise"],
+                ["કામ મુજબ","તબક્કા મુજબ"]
+            ]
         },
         {
-            "data": "Land an its Preparation",
-            "details":["Information"]
+            "data": ["Land an its Preparation","જમીન અને તેની તૈયારી"],
+            "details":[["Information"],["માહિતી"]]
         },
         {
-            "data": "Seed quality and Grooming",
-            "details":["Calculator","Information"]
+            "data": ["Seed quality and Grooming","બીજની ગુણવત્તા અને માવજત"],
+            "details":[["Calculator","Information"],["કેલ્ક્યુલેટર","માહિતી"]]
         },
         {
-            "data": "Planting Varieties-Seed rate and sowing spacing",
-            "details":["Calculator","Information"]
+            "data": ["Planting Varieties-Seed rate and sowing spacing","વાવેતરની જાતો-બિયારણનો દર અને વાવણીનું અંતર"],
+            "details":[["Calculator","Information"],["કેલ્ક્યુલેટર","માહિતી"]]
         },
         {
-            "data": "Fertilizer System",
-            "details":["Calculator","Information"]
+            "data": ["Fertilizer System","ખાતર પદ્ધતિ"],
+            "details":[["Calculator","Information"],["કેલ્ક્યુલેટર","માહિતી"]]
         },
         {
-            "data": "Intercropping and Weeding",
-            "details":["Calculator","Information"]
+            "data": ["Intercropping and Weeding","આંતર ખેડ અને નિંદામણ"],
+            "details":[["Calculator","Information"],["કેલ્ક્યુલેટર","માહિતી"]]
         },
         {
-            "data": "Irrigation System and Irrigation Time",
-            "details":["Information"]
+            "data": ["Irrigation System and Irrigation Time","સિંચાઈ પદ્ધતિ અને પિયત સમય"],
+            "details":[["Information"],["માહિતી"]]
         },
         {
-            "data": "Disease Control",
-            "details":["Calculator","Information"]
+            "data": ["Disease Control","રોગનું નિયંત્રણ"],
+            "details":[["Calculator","Information"],["કેલ્ક્યુલેટર","માહિતી"]]
         },
         {
-            "data": "Biological Control of the Disease",
-            "details":["Calculator","Information"]
+            "data": ["Biological Control of the Disease","રોગનું જૈવિક નિયંત્રણ"],
+            "details":[["Calculator","Information"],["કેલ્ક્યુલેટર","માહિતી"]]
         },
         {
-            "data": "Pruning, Grading and Storage",
-            "details":["Calculator","Information"]
+            "data": ["Pruning, Grading and Storage","કાપણી, ગ્રેડિંગ અને સંગ્રહ"],
+            "details":[["Calculator","Information"],["કેલ્ક્યુલેટર","માહિતી"]]
         }
     ],
     [
