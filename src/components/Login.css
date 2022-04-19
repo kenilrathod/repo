@@ -1,36 +1,45 @@
 .login-page {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 70vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 100px);
+    width: 100vw;
 }
 
-.form
-{
+.lottie-animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+.lottie-animation img {
+    width: 80%;
+}
+
+.form {
     background-color: #fff;
     padding: 20px;
-    width: 100%;
+    width: 50%;
+    height: fit-content;
     max-width: 500px;
     box-sizing: border-box;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px #666;
+    /* box-shadow: 0px 0px 10px 0px #666; */
 }
-.form h1
-{
+.form h1 {
     font-size: 24px;
     text-align: center;
     margin-bottom: 30px;
 }
-.form p
-{
+.form p {
     font-size: 16px;
     text-align: center;
     margin: 40px 0px 0px 0px;
 }
-.input
-{
+.input {
     padding: 15px 0 15px 30px;
     width: 100%;
     box-sizing: border-box;
@@ -38,8 +47,7 @@
     outline: none;
     border: 1px solid green;
 }
-.input-group
-{
+.input-group {
     position: relative;
     margin: 30px 0px;
 }
@@ -49,8 +57,7 @@
     top: 13px;
     left: 8px;
 }
-.placeholder
-{
+.placeholder {
     position: absolute;
     top: 12px;
     left: 30px;
@@ -71,8 +78,8 @@
     text-align: center;
     display: inline-block;
     font-size: 15px;
-  }
+}
 .input:focus + .placeholder {
     top: -10px;
-    left:5px
+    left: 5px;
 }

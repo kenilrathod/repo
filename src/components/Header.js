@@ -1,90 +1,159 @@
-import React,{useState,useEffect} from 'react'
-import { Routes,Route } from 'react-router'
-import Guide from './Guide'
-import Login from './Login'
-import Register from './Register'
-import Guideinner from './Guideinner';
-import {Switch,FormControl,FormControlLabel} from '@mui/material'
+import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router";
+import Guide from "./Guide";
+import Login from "./Login";
+import Register from "./Register";
+import Guideinner from "./Guideinner";
+import { Switch, FormControl, FormControlLabel, Button } from "@mui/material";
 
-import logo from '../down.png'
-import Chat from './Chat/Chat'
-import Join from './Join/Join'
+import logo from "../down.png";
+import Chat from "./Chat/Chat";
+import Join from "./Join/Join";
 // import logo from '../logo.jpg'
-import {NavLink,Link} from 'react-router-dom'
+import { NavLink, Link } from "react-router-dom";
+import { useAuth } from "../context/Auth.provider";
+import { useNavigate } from "react-router-dom";
 const Header = () => {
-    
-  const [language, setlanguage] = useState("English");
-    useEffect(()=>{
-      
-      localStorage.setItem('language',language)
-    },[language])
+    const navigate = useNavigate();
 
+    const { auth, logout } = useAuth();
 
+    const [language, setlanguage] = useState("English");
+    useEffect(() => {
+        localStorage.setItem("language", language);
+    }, [language]);
 
-
-
-    
     const changeLanguage = () => {
-        if(language == "English"){
-            setlanguage("ગુજરાતી")
-            localStorage.setItem("language","ગુજરાતી")
+        if (language == "English") {
+            setlanguage("ગુજરાતી");
+            localStorage.setItem("language", "ગુજરાતી");
+        } else {
+            setlanguage("English");
+            localStorage.setItem("language", "English");
         }
-        else{
-            setlanguage("English")
-            localStorage.setItem("language","English")}
-    }
+    };
 
-    return (
-       language == "English"?
-       <>
-        <div className="Header">
-        <Link to="/"><img src={logo} alt="f" className="logo" /></Link>
-        <nav className="nav_before_login">
-            
-            <NavLink to="/" className={({ isActive }) => isActive? "active": 'link_guide'}>Guide</NavLink>
-            <NavLink to="/login" className="link_login">Login</NavLink>
-            <NavLink to="/Register" className="link_register">Register</NavLink>
-            <NavLink to="/chat" className="link_chat">Chat</NavLink>
-            <FormControl >
-                <FormControlLabel className="label" control={<Switch onChange={changeLanguage}  className="toggle"/>} label={language} />
-            </FormControl>
-        </nav>
-        
-        </div>
-      <Routes>
-        <Route path="/" element={<Guide value="English"/>}  />
-        <Route path="/login" element={<Login value="English"/>}  />
-        <Route path="/chat" element={<Chat value="English" />}  />
-        <Route path="/join" element={<Join value="English" />}  />
-        <Route path="/register" element={<Register value="English"/>}  />
-        <Route path="/:id/*" element={<Guideinner value="English"/>}  />
-      </Routes>
-        </>
-        :
+    useEffect(() => {
+        console.log(auth.isAuthenticated);
+    }, []);
+
+    const handleLogout = () => {
+        logout();
+        navigate("/login");
+    };
+
+    return language == "English" ? (
         <>
-        <div className="Header">
-          <img src={logo} alt="f" className="logo" />
-          <nav className="nav_before_login">          
-            <NavLink to="/" className={({ isActive }) => isActive? "active": 'link_guide'}>માર્ગદર્શિકા</NavLink>
-            <NavLink to="/login" className="link_login">લોગીન</NavLink>
-            <NavLink to="/Register" className="link_register">રજીસ્ટર</NavLink>
-            <NavLink to="/chat" className="link_register">ચર્ચા</NavLink>
-            <FormControl >
-                <FormControlLabel className="label" control={<Switch onChange={changeLanguage}  className="toggle"/>} label={language} />
-            </FormControl>
-        </nav>
-        
-        </div>
-        <Routes>
-        <Route path="/" element={<Guide/>} value="ગુજરાતી" />
-        <Route path="/login" element={<Login/>} value="ગુજરાતી" />
-        <Route path="/register" element={<Register value="ગુજરાતી"/>}  />
-        <Route path="/:id/*" element={<Guideinner value="ગુજરાતી"/>}  />
-        <Route path="/chat" element={<Chat value="ગુજરાતી" />}  />
-        <Route path="/join" element={<Join value="ગુજરાતી" />}  />
-      </Routes>
+            <div className="Header">
+                <Link to="/">
+                    <img src={logo} alt="f" className="logo" />
+                </Link>
+                <nav className="nav_before_login">
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                            isActive ? "active" : "link_guide"
+                        }
+                    >
+                        Guide
+                    </NavLink>
+
+                    {!auth.isAuthenticated ? (
+                        <>
+                            <NavLink to="/login" className="link_login">
+                                Login
+                            </NavLink>
+                            <NavLink to="/Register" className="link_register">
+                                Register
+                            </NavLink>
+                        </>
+                    ) : (
+                        <>
+                            <NavLink to="/chat" className="link_chat">
+                                Chat
+                            </NavLink>
+                            <Button
+                                className="link_chat"
+                                onClick={handleLogout}
+                            >
+                                Logout
+                            </Button>
+                        </>
+                    )}
+                    <FormControl>
+                        <FormControlLabel
+                            className="label"
+                            control={
+                                <Switch
+                                    onChange={changeLanguage}
+                                    className="toggle"
+                                />
+                            }
+                            label={language}
+                        />
+                    </FormControl>
+                </nav>
+            </div>
+            <Routes>
+                <Route path="/" element={<Guide value="English" />} />
+                <Route path="/login" element={<Login value="English" />} />
+                <Route path="/chat" element={<Chat value="English" />} />
+                <Route path="/join" element={<Join value="English" />} />
+                <Route
+                    path="/register"
+                    element={<Register value="English" />}
+                />
+                <Route path="/:id/*" element={<Guideinner value="English" />} />
+            </Routes>
         </>
-        
-    );   
-}
+    ) : (
+        <>
+            <div className="Header">
+                <img src={logo} alt="f" className="logo" />
+                <nav className="nav_before_login">
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                            isActive ? "active" : "link_guide"
+                        }
+                    >
+                        માર્ગદર્શિકા
+                    </NavLink>
+                    <NavLink to="/login" className="link_login">
+                        લોગીન
+                    </NavLink>
+                    <NavLink to="/Register" className="link_register">
+                        રજીસ્ટર
+                    </NavLink>
+                    <NavLink to="/chat" className="link_register">
+                        ચર્ચા
+                    </NavLink>
+                    <FormControl>
+                        <FormControlLabel
+                            className="label"
+                            control={
+                                <Switch
+                                    onChange={changeLanguage}
+                                    className="toggle"
+                                />
+                            }
+                            label={language}
+                        />
+                    </FormControl>
+                </nav>
+            </div>
+            <Routes>
+                <Route path="/" element={<Guide />} value="ગુજરાતી" />
+                <Route path="/login" element={<Login />} value="ગુજરાતી" />
+                <Route
+                    path="/register"
+                    element={<Register value="ગુજરાતી" />}
+                />
+                <Route path="/:id/*" element={<Guideinner value="ગુજરાતી" />} />
+                <Route path="/chat" element={<Chat value="ગુજરાતી" />} />
+                <Route path="/join" element={<Join value="ગુજરાતી" />} />
+            </Routes>
+        </>
+    );
+};
 export default Header;

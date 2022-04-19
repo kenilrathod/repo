@@ -8,6 +8,8 @@ import {
 } from "@heroicons/react/outline";
 import Select from "react-select";
 import { useState } from "react";
+import { useAuth } from "../context/Auth.provider";
+import { useNavigate } from "react-router-dom";
 
 const dummy = [
     { value: "neel", label: "neel" },
@@ -16,22 +18,37 @@ const dummy = [
     { value: "dhruvin", label: "dhruvin" },
 ];
 
-export default function Register({ value }) {
+const Register = ({ value })=> {
+    const { registerUser } = useAuth();
+
     const [st, setSt] = useState("");
     const [district, setDistrict] = useState("");
     const [taluko, setTaluko] = useState("");
     const [village, setVillage] = useState("");
+
+    const navigate = useNavigate();
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        const user = {
+            name: e.target.name.value,
+            email: e.target.email.value,
+            password: e.target.password.value,
+        };
+        registerUser(user);
+        navigate("/login");
+    };
 
     return (
         <>
             {value === "English" ? (
                 <div>
                     <div className="registeration-page">
-                        <form className="form">
+                        <form className="form" onSubmit={handleFormSubmit}>
                             <h1>Registeration Form</h1>
                             <div className="input-group">
                                 <UserIcon className="icon" height={"20px"} />
-                                <input type="text" className="input" required />
+                                <input type="text" className="input" required name="name"/>
                                 <label className="placeholder">Name</label>
                             </div>
                             <div className="input-group">
@@ -39,11 +56,7 @@ export default function Register({ value }) {
                                     className="icon"
                                     height={"20px"}
                                 />
-                                <input
-                                    type="tel"
-                                    className="input"
-                                    required
-                                />
+                                <input type="tel" className="input" required />
                                 <label className="placeholder">Mobile No</label>
                             </div>
                             <div className="input-group">
@@ -52,6 +65,7 @@ export default function Register({ value }) {
                                     type="email"
                                     className="input"
                                     required
+                                    name="email"
                                 />
                                 <label className="placeholder">Email</label>
                             </div>
@@ -100,6 +114,7 @@ export default function Register({ value }) {
                                     type="password"
                                     className="input"
                                     required
+                                    name="password"
                                 />
                                 <label className="placeholder">Password</label>
                             </div>
@@ -140,11 +155,7 @@ export default function Register({ value }) {
                                     className="icon"
                                     height={"20px"}
                                 />
-                                <input
-                                    type="tel"
-                                    className="input"
-                                    required
-                                />
+                                <input type="tel" className="input" required />
                                 <label className="placeholder">
                                     મોબાઇલ નંબર
                                 </label>
@@ -229,3 +240,5 @@ export default function Register({ value }) {
         </>
     );
 }
+
+export default Register;
