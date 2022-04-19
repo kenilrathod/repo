@@ -69,17 +69,28 @@ const Login = ({ value }) => {
         </div>
     ) : (
         <div className="login-page">
+            <div className="lottie-animation">
+                <img src={loginAnimation} alt="ddd" />
+            </div>
             <form className="form">
                 <h1>Login Form</h1>
                 <div className="input-group">
                     <UserIcon className="icon" height={"20px"} />
-                    <input type="text" className="input" required />
-                    <label className="placeholder">લૉગિન આઈડી</label>
+                    <input
+                        type="text"
+                        className="input"
+                        required
+                        placeholder="લૉગિન આઈડી"
+                    />
                 </div>
                 <div className="input-group">
                     <LockClosedIcon className="icon" height={"20px"} />
-                    <input type="password" className="input" required />
-                    <label className="placeholder">પાસવર્ડ</label>
+                    <input
+                        type="password"
+                        className="input"
+                        required
+                        placeholder="પાસવર્ડ"
+                    />
                 </div>
                 <p>પાસવર્ડ ભૂલી ગયા?</p>
                 <button className="btn">લોગીન કરો</button>
